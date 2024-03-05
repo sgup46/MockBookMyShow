@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/DatabaseService/DatabaseService.iml" filepath="$PROJECT_DIR$/DatabaseService/DatabaseService.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/MockBookMyShow.iml" filepath="$PROJECT_DIR$/.idea/MockBookMyShow.iml" />
+      <module fileurl="file://$PROJECT_DIR$/OnboardService/OnboardService.iml" filepath="$PROJECT_DIR$/OnboardService/OnboardService.iml" />
+      <module fileurl="file://$PROJECT_DIR$/RemoteTheatreService/RemoteTheatreService.iml" filepath="$PROJECT_DIR$/RemoteTheatreService/RemoteTheatreService.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SearchService/SearchService.iml" filepath="$PROJECT_DIR$/SearchService/SearchService.iml" />
     </modules>
   </component>
 </project>

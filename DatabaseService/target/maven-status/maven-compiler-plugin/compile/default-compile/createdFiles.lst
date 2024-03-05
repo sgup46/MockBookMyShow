@@ -1,7 +1,1 @@
-com\sapient\model\Seat.class
-com\sapient\model\Booking.class
-com\sapient\model\Theater.class
-com\sapient\model\City.class
-com\sapient\model\Movie.class
-com\sapient\model\Show.class
 DatabaseApplication.class

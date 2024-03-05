@@ -28,7 +28,7 @@ docker exec -it databaseservice-kafka-1 kafka-topics.sh --create --topic show --
 
 
 
-##h2 console
+## h2 console
 1) http://localhost:8010/h2-console/ is the url , h2 database in TCP mode after running DatabaseService Application   
 2) url : jdbc:h2:file:D:/data/demo
 3) username as "sa" and password as empty
@@ -44,7 +44,7 @@ for /f "delims=" %i in ('docker images -q') do docker rmi -f %i                 
 for /f "delims=" %i in ('docker ps -q') do docker stop %i                     // stopping all containers
 
 ## services
-1) database Service : will run the h2 DB in TCP mode
-2) RemoteTheatreService : Main Theatre application exposing rest endpoint at http://localhost:8011/swagger-ui acting as B2B business controller
-3) OnboardService : acting as B2CBusiness responsible for updating city,theatre and shows from RemoteTheatreService using messagingSystem as integration
-4) SearchService : for browsing all the content on UI
+1) **database Service** : will run the h2 DB in TCP mode
+2) **RemoteTheatreService** : Main Theatre application exposing rest endpoint at http://localhost:8011/swagger-ui acting as B2B business controller
+3) **OnboardService** : acting as B2CBusiness responsible for updating city,theatre and shows from RemoteTheatreService using messagingSystem as integration
+4) **SearchService** : for browsing all the content on UI

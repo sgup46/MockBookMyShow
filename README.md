@@ -1,9 +1,9 @@
-# running the docker
-got to D:\microservices-projects\DatabaseService
-if you are on wiondows , ensure docker desktop is running
-docker-compose up -d
+## running the docker
+1) got to D:\microservices-projects\DatabaseService
+2) if you are on wiondows , ensure docker desktop is running
+3) Run docker-compose up -d from command prompt
 
-# 4 topics created
+## 4 topics created 
 docker exec -it databaseservice-kafka-1 kafka-topics.sh --create --topic city --partitions 1 --replication-factor 1 --bootstrap-server localhost:9092
 
 docker exec -it databaseservice-kafka-1 kafka-topics.sh --create --topic movie --partitions 1 --replication-factor 1 --bootstrap-server localhost:9092
@@ -28,10 +28,10 @@ docker exec -it databaseservice-kafka-1 kafka-topics.sh --create --topic show --
 
 
 
-#h2 console
-http://localhost:8010/h2-console/
-url : jdbc:h2:file:D:/data/demo
-username as "sa"
+##h2 console
+1) http://localhost:8010/h2-console/ is the url , h2 database in TCP mode after running DatabaseService Application   
+2) url : jdbc:h2:file:D:/data/demo
+3) username as "sa" and password as empty
 
 
 6. to stop all running docker images
@@ -42,3 +42,9 @@ docker stop <image_id>
 
 for /f "delims=" %i in ('docker images -q') do docker rmi -f %i                 // remove all docker images
 for /f "delims=" %i in ('docker ps -q') do docker stop %i                     // stopping all containers
+
+## services
+1) database Service : will run the h2 DB in TCP mode
+2) RemoteTheatreService : Main Theatre application exposing rest endpoint at http://localhost:8011/swagger-ui acting as B2B business controller
+3) OnboardService : acting as B2CBusiness responsible for updating city,theatre and shows from RemoteTheatreService using messagingSystem as integration
+4) SearchService : for browsing all the content on UI

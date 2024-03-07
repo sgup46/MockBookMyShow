@@ -1,4 +1,7 @@
-## running the docker
+## High Level Design
+![alt text](./architecture.jpg "High Level Design")
+
+## running the docker and bringing kafka cluster up
 1) got to D:\microservices-projects\DatabaseService
 2) if you are on wiondows , ensure docker desktop is running
 3) Run docker-compose up -d from command prompt

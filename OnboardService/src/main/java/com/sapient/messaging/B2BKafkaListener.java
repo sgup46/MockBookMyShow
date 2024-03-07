@@ -39,10 +39,6 @@ public class B2BKafkaListener {
     @Qualifier("showService")
     IService theShowService;
 
-    @Autowired
-    @Qualifier("bookingsService")
-    IService theBookingsService;
-
     @KafkaListener(topics = "city", groupId = "city-group", concurrency = "2")
     public void createCity(ConsumerRecord<String, String> record) throws JsonProcessingException {
         // Your business logic here
@@ -74,27 +70,6 @@ public class B2BKafkaListener {
         }
     }
 
-//    @KafkaListener(topics = "show", groupId = "show-group", concurrency = "2")
-//    public void updateShow(ConsumerRecord<String, String> record) throws JsonProcessingException {
-//        log.info("Received addTheatreToCity message: " + record.value());
-//        ObjectMapper objectMapper = new ObjectMapper();
-//        Map<String, Object> jsonMap = objectMapper.readValue(record.value(), Map.class);
-//        Show s = null;
-//        String action = null;
-//        for (Map.Entry<String, Object> entry : jsonMap.entrySet()) {
-//            String key = entry.getKey();
-//            Object value = entry.getValue();
-//            if("action".equalsIgnoreCase(key)) {
-//                action = String.valueOf(value);
-//            }
-//            if("show".equalsIgnoreCase(key)) {
-//                s = new ObjectMapper().readValue(record.value(), Show.class);
-//            }
-//        }
-//
-//        updateShow(action, s);
-//        log.info("show updated message: " + s);
-//    }
 
     @KafkaListener(topics = "show", groupId = "show-group", concurrency = "2")
     public void createOrupdateShow(ConsumerRecord<String, String> record) throws JsonProcessingException {

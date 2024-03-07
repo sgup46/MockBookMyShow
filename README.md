@@ -1,6 +1,9 @@
 ## High Level Design
 ![alt text](./architecture.jpg "High Level Design")
 
+## AWS INFRA
+![alt text](./AWS-Infra.png "High Level Design")
+
 ## running the docker and bringing kafka cluster up
 1) got to D:\microservices-projects\DatabaseService
 2) if you are on wiondows , ensure docker desktop is running
@@ -51,3 +54,33 @@ for /f "delims=" %i in ('docker ps -q') do docker stop %i                     //
 2) **RemoteTheatreService** : Main Theatre application exposing rest endpoint at http://localhost:8011/swagger-ui acting as B2B business controller
 3) **OnboardService** : acting as B2CBusiness responsible for updating city,theatre and shows from RemoteTheatreService using messagingSystem as integration
 4) **SearchService** : for browsing all the content on UI
+
+## Monetize  Platform
+
+1) Offers during the payment will increase customer base and service charges applied will increase based on tickets booked.
+2) Advertisements over the platform can help in revenue.
+3) Offers in snacks booking along with Ticket can help again by taking commission from Theater vendors.
+
+## Scaling  Platform
+
+1) Autoscaling enabled for pods to handle peak requests
+2) Multiple Web Servers load balanced
+3) Master Slave RDMS in different availability Zones . Read Replicas maintained for faster response
+4) Redis Caching to hold the DB information for cities/theater/shows to reduce backend traffic to DB
+5) Aysnc  process rest calls to Theater API’s
+6) DR can be placed in other region for Disaster recovery
+7) CDN and Webserver caching for static content e.g videos, trailers, images
+
+## Release management  Across Cities
+
+1) Separate Config project for various environments and various regions and controlled by Spring profiles
+2) I18 internalization applied for Messages for various languages supported on UI
+3) Code Pipelines with actions , to deploy to various regions
+4) CDN for static content
+5) Canary Deployment/Blue Green Deployment Methodology can be used to keep 99.99% availability during the releases
+
+## Monitoring
+
+1) Cloud Watch Events in AWS generated for servers . Using Alarms,Alerts and CloudTrail , can help in additional monitoring
+2) Prometheus and Grafana can helping in configuring alerts and log aggregation.
+3) AWS distributed tracing Xray can be integrated , can leverage Service Mesh monitoring as well

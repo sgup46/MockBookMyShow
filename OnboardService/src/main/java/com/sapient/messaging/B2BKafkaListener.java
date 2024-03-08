@@ -8,6 +8,7 @@ import com.sapient.model.Movie;
 import com.sapient.model.Show;
 import com.sapient.model.Theater;
 import com.sapient.service.*;
+import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +22,7 @@ import java.util.Map;
 
 @Component
 @Slf4j
+@Data
 public class B2BKafkaListener {
 
     @Autowired
@@ -72,12 +74,13 @@ public class B2BKafkaListener {
 
 
     @KafkaListener(topics = "show", groupId = "show-group", concurrency = "2")
-    public void createOrupdateShow(ConsumerRecord<String, String> record) throws JsonProcessingException {
+    public MovieShow createOrupdateShow(ConsumerRecord<String, String> record) throws JsonProcessingException {
         // Your business logic here
         log.info("Received show message: " + record.value());
         MovieShow movieShow = new ObjectMapper().readValue(record.value(), MovieShow.class);
         updateShow(movieShow);
         log.info("show updated message: " + movieShow);
+        return movieShow;
     }
 
     private void updateShow(MovieShow movieShow) {

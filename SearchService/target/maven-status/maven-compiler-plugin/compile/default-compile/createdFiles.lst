@@ -3,17 +3,14 @@ com\sapient\repository\MovieRepository.class
 com\sapient\service\TheaterService.class
 com\sapient\SearchApplication.class
 com\sapient\service\ShowService.class
-com\sapient\service\BookingsService.class
 com\sapient\dao\IServiceDAO.class
 com\sapient\dao\CityServiceDAO.class
 com\sapient\service\MovieService.class
 com\sapient\controller\B2CContoller.class
 com\sapient\repository\CityRepository.class
-com\sapient\model\Booking.class
 com\sapient\model\Theater.class
 com\sapient\model\Movie.class
 com\sapient\exception\TicketBookingException.class
-com\sapient\dao\BookingsServiceDAO.class
 com\sapient\repository\TheaterRepository.class
 com\sapient\service\CityService.class
 com\sapient\repository\ShowRepository.class
@@ -25,4 +22,3 @@ com\sapient\config\SwaggerConfig.class
 com\sapient\model\Seat.class
 com\sapient\service\IService.class
 com\sapient\model\Show.class
-com\sapient\repository\BookingsRepository.class

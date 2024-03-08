@@ -4,6 +4,9 @@
 ## AWS INFRA
 ![alt text](./AWS-Infra.png "High Level Design")
 
+## Data modelling
+![alt text](./data_modelling.png "High Level Design")
+
 ## running the docker and bringing kafka cluster up
 1) got to D:\microservices-projects\DatabaseService
 2) if you are on wiondows , ensure docker desktop is running
@@ -84,3 +87,44 @@ for /f "delims=" %i in ('docker ps -q') do docker stop %i                     //
 1) Cloud Watch Events in AWS generated for servers . Using Alarms,Alerts and CloudTrail , can help in additional monitoring
 2) Prometheus and Grafana can helping in configuring alerts and log aggregation.
 3) AWS distributed tracing Xray can be integrated , can leverage Service Mesh monitoring as well
+
+## Run local
+Ensure docker is running
+
+1) Run DatabaseApplication and access h2 at http://localhost:8010/h2-console
+jdbc url : jdbc:h2:file:D:/data/demo
+user : sa and password as blank
+2) Run RemoteThreatre Service and access swagger at http://localhost:8011/swagger-ui
+   URL: /api/createCity
+   Method: POST
+   Request:
+   {
+   "city_name":"Bengaluru",
+   "city_pincode":"590056",
+   "city_state":"Karnataka"
+   }
+
+URL:   /api/createMovie
+{
+"movie_name":"WAR 3",
+"movie_director":"dfsdf",
+"movie_description":"description about the WAR 3 movie here"
+}
+
+
+URL:   /api/createTheaterInCity
+{
+"area": "area",
+"cityId": 2,
+"name": "name"
+}
+
+/api/createUpdateOrDeleteShow
+{
+"movieId": 11,
+"operation": "create",
+"showId": 9,
+"showTime": "9:00 PM"
+}
+3) Run onboardService 
+4) Run SearchApplication at access swagger at http://localhost:8000/swagger-ui/

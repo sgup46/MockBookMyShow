@@ -36,9 +36,6 @@ public class B2CContollerTest {
     @Mock
     ShowService theShowService;
 
-    @Mock
-    BookingsService theBookingsService;
-
 
     @Test
     public void testGetTheatresByMovieAndShowTimings() throws Exception {

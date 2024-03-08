@@ -34,9 +34,6 @@ public class B2CContoller {
 	@Qualifier("showService")
 	IService theShowService;
 
-	@Autowired
-	@Qualifier("bookingsService")
-	IService theBookingsService;
 
 
 	/**
@@ -99,18 +96,7 @@ public class B2CContoller {
 		return ((TheaterService)theTheaterService).getTheatresByMovieAndShowTimings(ID , movieName, showTime, showDate);
 	}
 
-	/**
-	 * Yet to  be implemented
-	 * @param id
-	 * @param b
-	 * @return
-	 */
-	@PostMapping("show/{id}/bookings")
-	public Booking bookSeatForShow(@PathVariable (value = "id") long id, @Valid @RequestBody Booking b)
-	{
-		// to be implemented
-		throw new TicketBookingException("Not implemented Exception");
-	}
+
 	
 }
 

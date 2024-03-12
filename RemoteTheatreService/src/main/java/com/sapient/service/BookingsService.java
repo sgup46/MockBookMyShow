@@ -1,4 +1,4 @@
-package com.sapient.config.service;
+package com.sapient.service;
 
 import com.sapient.dao.BookingsServiceDAO;
 import com.sapient.dao.IServiceDAO;

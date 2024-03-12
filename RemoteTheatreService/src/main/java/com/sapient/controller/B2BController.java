@@ -3,8 +3,7 @@ package com.sapient.controller;
 
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.sapient.config.service.IService;
+import com.sapient.service.IService;
 import com.sapient.domain.CityTheatre;
 import com.sapient.domain.MovieShow;
 import com.sapient.messaging.KafkaProducerService;
@@ -18,9 +17,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.Map;
 
 @Slf4j
 @RestController

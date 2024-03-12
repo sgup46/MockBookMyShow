@@ -7,6 +7,7 @@
         <option value="$PROJECT_DIR$/OnboardService/pom.xml" />
         <option value="$PROJECT_DIR$/RemoteTheatreService/pom.xml" />
         <option value="$PROJECT_DIR$/SearchService/pom.xml" />
+        <option value="$PROJECT_DIR$/RemoteTheatreBookingService/pom.xml" />
       </list>
     </option>
   </component>

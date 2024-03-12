@@ -11,7 +11,26 @@
 1) got to D:\microservices-projects\DatabaseService
 2) if you are on wiondows , ensure docker desktop is running
 3) Run docker-compose up -d from command prompt
+4) docker pull redis
+5) docker run -d --name my-redis -p 6379:6379 redis:latest
+6) docker exec -it 3dfe6f12c38b redis-cli
 
+## Redis commands examples
+Get a cached value: GET my-cached-data
+Check if a key exists: EXISTS user_session_123
+Verify cache expiration: TTL product_details
+Search for keys with a pattern:KEYS product:*
+Acquire a lock (assuming no existing lock): SETNX my_lock_key my_app_name EX 30
+Check lock status (assuming another application already holds the lock):SETNX my_lock_key my_app_name EX 30
+
+Set a simple string key-value pair: SET my_name "Alice"
+Set a key-value pair with expiration: SET message "Hello World" EX 10  # Expires in 10 seconds
+Set a key-value pair only if it doesn't exist (using NX):SET counter 1 NX
+
+HGETALL reserve_000   ===> to check lockk
+TTL reserve_000
+
+1. Acquiring a Lock with Redis CLI (SETNX): SETNX reserve_000 valueOflock EX 60
 ## 4 topics created 
 docker exec -it databaseservice-kafka-1 kafka-topics.sh --create --topic city --partitions 1 --replication-factor 1 --bootstrap-server localhost:9092
 
